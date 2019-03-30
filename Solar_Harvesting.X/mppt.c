@@ -112,7 +112,7 @@ void write_Uin(void)//scriere pe display valoarea tensinuii de intrare
     Lcd_Write_String(str_V);
     Lcd_Write_String(" V");
 }
-write_Power(void)
+void write_Power(void)
 {
     Power_a=Uout*Iout;
     Lcd_Set_Cursor(2,10);

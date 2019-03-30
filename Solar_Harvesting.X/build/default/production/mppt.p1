@@ -1196,8 +1196,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 869 ]
 }
 "115
-[; ;mppt.c: 115: write_Power(void)
-[v _write_Power `(i ~T0 @X0 1 ef ]
+[; ;mppt.c: 115: void write_Power(void)
+[v _write_Power `(v ~T0 @X0 1 ef ]
 "116
 [; ;mppt.c: 116: {
 {

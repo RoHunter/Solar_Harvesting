@@ -127,6 +127,8 @@
 [v _read_Uin read_Uin `(v  1 e 1 0 ]
 "106
 [v _write_Uin write_Uin `(v  1 e 1 0 ]
+"115
+[v _write_Power write_Power `(v  1 e 1 0 ]
 "125
 [v _pwm_init pwm_init `(v  1 e 1 0 ]
 "139
@@ -259,15 +261,15 @@
 [v _ADCON1 ADCON1 `VEuc  1 e 1 @4033 ]
 "13611
 [v _ADCON0 ADCON0 `VEuc  1 e 1 @4034 ]
-[s S547 . 1 `uc 1 . 1 0 :1:0 
+[s S551 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO_NOT_DONE 1 0 :1:1 
 ]
 "13656
-[s S550 . 1 `uc 1 ADON 1 0 :1:0 
+[s S554 . 1 `uc 1 ADON 1 0 :1:0 
 `uc 1 GO_nDONE 1 0 :1:1 
 `uc 1 CHS 1 0 :5:2 
 ]
-[s S554 . 1 `uc 1 . 1 0 :1:0 
+[s S558 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO 1 0 :1:1 
 `uc 1 CHS0 1 0 :1:2 
 `uc 1 CHS1 1 0 :1:3 
@@ -275,23 +277,23 @@
 `uc 1 CHS3 1 0 :1:5 
 `uc 1 CHS4 1 0 :1:6 
 ]
-[s S562 . 1 `uc 1 . 1 0 :1:0 
+[s S566 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 DONE 1 0 :1:1 
 ]
-[s S565 . 1 `uc 1 . 1 0 :1:0 
+[s S569 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 NOT_DONE 1 0 :1:1 
 ]
-[s S568 . 1 `uc 1 . 1 0 :1:0 
+[s S572 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 nDONE 1 0 :1:1 
 ]
-[s S571 . 1 `uc 1 . 1 0 :1:0 
+[s S575 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO_DONE 1 0 :1:1 
 ]
-[s S574 . 1 `uc 1 . 1 0 :1:0 
+[s S578 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GODONE 1 0 :1:1 
 ]
-[u S577 . 1 `S547 1 . 1 0 `S550 1 . 1 0 `S554 1 . 1 0 `S562 1 . 1 0 `S565 1 . 1 0 `S568 1 . 1 0 `S571 1 . 1 0 `S574 1 . 1 0 ]
-[v _ADCON0bits ADCON0bits `VES577  1 e 1 @4034 ]
+[u S581 . 1 `S551 1 . 1 0 `S554 1 . 1 0 `S558 1 . 1 0 `S566 1 . 1 0 `S569 1 . 1 0 `S572 1 . 1 0 `S575 1 . 1 0 `S578 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES581  1 e 1 @4034 ]
 "13763
 [v _ADRESH ADRESH `VEuc  1 e 1 @4036 ]
 "13783
@@ -392,7 +394,7 @@
 [v _tens_A tens_A `f  1 e 4 0 ]
 [v _rez_adc_U rez_adc_U `f  1 e 4 0 ]
 [v _tens tens `f  1 e 4 0 ]
-[v _Power Power `f  1 e 4 0 ]
+[v _Power_a Power_a `f  1 e 4 0 ]
 "7 D:\Github\Solar_Harvesting\Solar_Harvesting.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
@@ -415,6 +417,11 @@
 {
 "114
 } 0
+"115
+[v _write_Power write_Power `(v  1 e 1 0 ]
+{
+"123
+} 0
 "48
 [v _write_Iout write_Iout `(v  1 e 1 0 ]
 {
@@ -423,9 +430,9 @@
 "9 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\nf_sprintf.c
 [v _sprintf sprintf `(i  1 e 2 0 ]
 {
-[s S1320 _IO_FILE 6 `*.39uc 1 buffer 2 0 `i 1 count 2 2 `i 1 limit 2 4 ]
+[s S1324 _IO_FILE 6 `*.39uc 1 buffer 2 0 `i 1 count 2 2 `i 1 limit 2 4 ]
 "13
-[v sprintf@f f `S1320  1 a 6 68 ]
+[v sprintf@f f `S1324  1 a 6 68 ]
 "12
 [v sprintf@ap ap `[1]*.39v  1 a 2 66 ]
 "9
@@ -438,9 +445,9 @@
 {
 "1371
 [v vfprintf@cfmt cfmt `*.25uc  1 a 2 91 ]
-[s S676 _IO_FILE 0 ]
+[s S680 _IO_FILE 0 ]
 "1368
-[v vfprintf@fp fp `*.39S676  1 p 2 85 ]
+[v vfprintf@fp fp `*.39S680  1 p 2 85 ]
 [v vfprintf@fmt fmt `*.25Cuc  1 p 2 87 ]
 [v vfprintf@ap ap `*.39*.39v  1 p 2 89 ]
 "1382
@@ -453,9 +460,9 @@
 "672
 [v vfpfcnvrt@ct ct `[3]uc  1 a 3 81 ]
 [v vfpfcnvrt@c c `uc  1 a 1 84 ]
-[s S676 _IO_FILE 0 ]
+[s S680 _IO_FILE 0 ]
 "670
-[v vfpfcnvrt@fp fp `*.39S676  1 p 2 63 ]
+[v vfpfcnvrt@fp fp `*.39S680  1 p 2 63 ]
 [v vfpfcnvrt@fmt fmt `*.39*.25uc  1 p 2 65 ]
 [v vfpfcnvrt@ap ap `*.39*.39v  1 p 2 67 ]
 "1365
@@ -496,9 +503,9 @@
 "321
 [v efgtoa@mode mode `uc  1 a 1 33 ]
 [v efgtoa@nmode nmode `uc  1 a 1 30 ]
-[s S676 _IO_FILE 0 ]
+[s S680 _IO_FILE 0 ]
 "319
-[v efgtoa@fp fp `*.39S676  1 p 2 51 ]
+[v efgtoa@fp fp `*.39S680  1 p 2 51 ]
 [v efgtoa@f f `d  1 p 4 53 ]
 [v efgtoa@c c `uc  1 p 1 57 ]
 "503
@@ -533,9 +540,9 @@
 "74
 [v pad@w w `i  1 a 2 25 ]
 [v pad@i i `i  1 a 2 23 ]
-[s S676 _IO_FILE 0 ]
+[s S680 _IO_FILE 0 ]
 "72
-[v pad@fp fp `*.39S676  1 p 2 16 ]
+[v pad@fp fp `*.39S680  1 p 2 16 ]
 [v pad@buf buf `*.39uc  1 p 2 18 ]
 [v pad@p p `i  1 p 2 20 ]
 "95
@@ -558,16 +565,16 @@
 [v fputs@c c `uc  1 a 1 13 ]
 "8
 [v fputs@s s `*.39Cuc  1 p 2 9 ]
-[s S1320 _IO_FILE 6 `*.39uc 1 buffer 2 0 `i 1 count 2 2 `i 1 limit 2 4 ]
-[v fputs@fp fp `*.39S1320  1 p 2 11 ]
+[s S1324 _IO_FILE 6 `*.39uc 1 buffer 2 0 `i 1 count 2 2 `i 1 limit 2 4 ]
+[v fputs@fp fp `*.39S1324  1 p 2 11 ]
 "19
 } 0
 "8 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\nf_fputc.c
 [v _fputc fputc `(i  1 e 2 0 ]
 {
 [v fputc@c c `i  1 p 2 0 ]
-[s S1320 _IO_FILE 6 `*.39uc 1 buffer 2 0 `i 1 count 2 2 `i 1 limit 2 4 ]
-[v fputc@fp fp `*.39S1320  1 p 2 2 ]
+[s S1324 _IO_FILE 6 `*.39uc 1 buffer 2 0 `i 1 count 2 2 `i 1 limit 2 4 ]
+[v fputc@fp fp `*.39S1324  1 p 2 2 ]
 "21
 } 0
 "7 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\putch.c
@@ -578,9 +585,9 @@
 "3 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\floorf.c
 [v _floorf floorf `(f  1 e 4 0 ]
 {
-[u S1254 . 4 `f 1 f 4 0 `ul 1 i 4 0 ]
+[u S1258 . 4 `f 1 f 4 0 `ul 1 i 4 0 ]
 "5
-[v floorf@u u `S1254  1 a 4 41 ]
+[v floorf@u u `S1258  1 a 4 41 ]
 "7
 [v floorf@m m `ul  1 a 4 35 ]
 "6
@@ -588,21 +595,21 @@
 "3
 [v floorf@x x `f  1 p 4 25 ]
 "4
-[v floorf@F524 F524 `S1254  1 s 4 F524 ]
+[v floorf@F524 F524 `S1258  1 s 4 F524 ]
 "27
 } 0
 "4 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\__fpclassifyf.c
 [v ___fpclassifyf __fpclassifyf `(i  1 e 2 0 ]
 {
-[u S1254 . 4 `f 1 f 4 0 `ul 1 i 4 0 ]
+[u S1258 . 4 `f 1 f 4 0 `ul 1 i 4 0 ]
 "6
-[v ___fpclassifyf@u u `S1254  1 a 4 10 ]
+[v ___fpclassifyf@u u `S1258  1 a 4 10 ]
 "7
 [v ___fpclassifyf@e e `i  1 a 2 8 ]
 "4
 [v ___fpclassifyf@x x `f  1 p 4 0 ]
 "5
-[v ___fpclassifyf@F463 F463 `S1254  1 s 4 F463 ]
+[v ___fpclassifyf@F463 F463 `S1258  1 s 4 F463 ]
 "11
 } 0
 "245 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\sprcadd.c
@@ -772,17 +779,17 @@
 "8 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
 {
-[s S1119 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+[s S1123 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
 "13
-[s S1124 . 4 `s 1 wordA 2 0 `s 1 wordB 2 2 ]
-[u S1127 . 4 `l 1 i 4 0 `d 1 f 4 0 `S1119 1 fAsBytes 4 0 `S1124 1 fAsWords 4 0 ]
-[v ___flmul@prod prod `S1127  1 a 4 33 ]
+[s S1128 . 4 `s 1 wordA 2 0 `s 1 wordB 2 2 ]
+[u S1131 . 4 `l 1 i 4 0 `d 1 f 4 0 `S1123 1 fAsBytes 4 0 `S1128 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S1131  1 a 4 33 ]
 "12
 [v ___flmul@grs grs `ul  1 a 4 27 ]
-[s S1195 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+[s S1199 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
 "14
-[u S1198 . 2 `s 1 i 2 0 `us 1 n 2 0 `S1195 1 nAsBytes 2 0 ]
-[v ___flmul@temp temp `S1198  1 a 2 37 ]
+[u S1202 . 2 `s 1 i 2 0 `us 1 n 2 0 `S1199 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S1202  1 a 2 37 ]
 "10
 [v ___flmul@bexp bexp `uc  1 a 1 32 ]
 "11
