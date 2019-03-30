@@ -16,7 +16,8 @@
 int buck_pwm,boost_pwm;
 
 char str_V[8],str_A[8],str_P[8];
-float rez_adc_A,tens_A,Iout,rez_adc_U,tens,Uout,Uin;
+int dty,c;
+float rez_adc_A,tens_A,Iout,rez_adc_U,tens,Uout,Uin,Power_a;
 
 void read_Iout(void)//citire curent de iesire
 {
@@ -27,6 +28,20 @@ void read_Iout(void)//citire curent de iesire
     rez_adc_A=ADRESH;
     tens_A=rez_adc_A*0.0181372549019608;
     Iout=tens_A;
+    if(Iout>2)
+    {
+        __delay_ms(10);
+        CCPR1L=0;
+        CCPR2L=0;
+        Lcd_Clear();
+        Lcd_Set_Cursor(1,1);
+        Lcd_Write_String("Over Current");
+        while(1)
+        {
+            __delay_ms(100);
+        }
+    
+    }
     
 }
 
@@ -50,6 +65,20 @@ void read_Uout(void)//citire valoare tensinue de iesire
     rez_adc_U=ADRESH;
     tens=rez_adc_U*0.01953125;
     Uout=tens/0.25;
+    if(Uout>14.4)
+    {
+        __delay_ms(10);
+        CCPR1L=0;
+        CCPR2L=0;
+        Lcd_Clear();
+        Lcd_Set_Cursor(1,1);
+        Lcd_Write_String("Over Voltage");
+        while(1)
+        {
+            __delay_ms(100);
+        }
+    
+    }
 
 }
 
@@ -83,6 +112,15 @@ void write_Uin(void)//scriere pe display valoarea tensinuii de intrare
     Lcd_Write_String(str_V);
     Lcd_Write_String(" V");
 }
+write_Power(void)
+{
+    Power_a=Uout*Iout;
+    Lcd_Set_Cursor(2,10);
+    sprintf(str_P, "%.2f", Power_a);
+    Lcd_Write_String(str_P);
+    Lcd_Write_String(" W");
+    
+}
 
 void pwm_init(float Uin)
 {
@@ -96,4 +134,34 @@ void pwm_init(float Uin)
     {
 
     }
+}
+
+void set_boost(int dty)
+{
+	if(dty>100)
+    {
+        dty=100;
+    }
+    if(dty<0)
+    {
+        dty=0;
+    }
+	c=dty*1.61; 
+	CCPR1L=c;
+    
+	
+}
+void set_buck(int dty)
+{
+	if(dty>100)
+    {
+        dty=100;
+    }
+    if(dty<0)
+    {
+        dty=0;
+    }
+    
+	c=dty*1.61; 
+	CCPR2L=c;
 }

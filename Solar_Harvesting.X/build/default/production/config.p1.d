@@ -1,6 +1,5 @@
- build/default/production/config.d  \
- build/default/production/config.p1:  \
- config.c  \
-lcd_i2c.h  \
+build/default/production/config.p1:  \
+config.c  \
 config.h  \
+lcd_i2c.h  \
 bit_config.h 

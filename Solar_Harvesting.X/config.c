@@ -72,3 +72,14 @@ void init_io_display()//initializari display I2C
     Lcd_Write_String("Test");
     __delay_ms(100);
 }
+
+void eusart_config(void)
+{
+    TRISCbits.RC6=1;
+    USARTInit(19200);//19200
+    TRISCbits.RC7=1;
+    INTCONbits.GIE=1;
+    INTCONbits.PEIE=1;
+    PIE1bits.RC1IE=1;
+    
+}

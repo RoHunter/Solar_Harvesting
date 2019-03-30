@@ -1,3 +1,4 @@
+
 /* Microchip Technology Inc. and its subsidiaries.  You may use this software 
  * and any derivatives exclusively with Microchip products. 
  * 
@@ -26,3 +27,6 @@ void write_Iout(void);
 void write_Uout(void);
 void write_Uin(void);
 void pwm_init(float Uin);
+void set_buck(int dty);
+void set_boost(int dty);
+void write_Power(void);

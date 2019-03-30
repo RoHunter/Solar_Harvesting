@@ -36,7 +36,8 @@
 #include <math.h>
 #include <stdio.h>
 #include "mppt.h"
-extern float rez_adc_A,tens_A,Iout,rez_adc_U,tens,Uout,Uin;
+
+extern float rez_adc_A,tens_A,Iout,rez_adc_U,tens,Uout,Uin,Power;
 // TODO Insert appropriate #include <>
 
 // TODO Insert C++ class definitions if appropriate
